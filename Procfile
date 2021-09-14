@@ -1,1 +1,1 @@
-web: gunicorn Sudolvers.wsgi
+web: gunicorn monstermine.wsgi
