@@ -65,7 +65,7 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=150, blank=True)
     last_name =  models.CharField(max_length=150, blank=True)
     password = models.CharField(max_length=100, blank=True, null=True)
-    phone = models.IntegerField(unique=True, blank=True, null=True)
+    phone = models.CharField(unique=True, max_length=150)
     payoutaddress = models.CharField(max_length=150, blank=True)
     amountmined =  models.CharField(max_length=150, blank=True)
     amountachievedafterded =  models.CharField(max_length=150, blank=True)
