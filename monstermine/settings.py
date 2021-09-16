@@ -57,7 +57,7 @@ ROOT_URLCONF = 'monstermine.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join (BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +134,7 @@ MEDIA_URL = '/media/'
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 # ADMIN_LOGIN_REDIRECT_URL = 'product_detail/product/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
