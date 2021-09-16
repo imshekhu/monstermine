@@ -84,13 +84,19 @@ WSGI_APPLICATION = 'monstermine.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 try:
-    devserver = env('SERVER')
+    devserver = os.environ['SERVER']
 except:
     devserver = None
-
 # if devserver:
 DATABASES = {
-'default': env.db()
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'd98v86ttnaavhg',
+    'USER': 'qthyzmpheajzqy',
+    'PASSWORD': 'd8dec6ce9d4376217b8e2f95a01f119fe7cf79c69031407f37f4e3ee323862d4',
+    'HOST': 'ec2-3-219-111-26.compute-1.amazonaws.com', 
+    'PORT': 5432,
+}
 }
 # else:
 #     DATABASES = {
