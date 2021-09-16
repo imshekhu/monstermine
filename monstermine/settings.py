@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import django_heroku
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,19 +84,13 @@ WSGI_APPLICATION = 'monstermine.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 try:
-    devserver = os.environ['SERVER']
+    devserver = env('SERVER')
 except:
     devserver = None
+
 if devserver:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['NAME'],
-        'USER': os.environ['USER'],
-        'PASSWORD': os.environ['PASSWORD'],
-        'HOST': os.environ['HOST'], 
-        'PORT': os.environ['PORT'],
-    }
+    'default': env.db()
 }
 else:
     DATABASES = {
@@ -145,6 +147,8 @@ STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join (BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 # ADMIN_LOGIN_REDIRECT_URL = 'product_detail/product/'
