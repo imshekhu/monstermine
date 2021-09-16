@@ -88,17 +88,17 @@ try:
 except:
     devserver = None
 
-if devserver:
-    DATABASES = {
-    'default': env.db()
+# if devserver:
+DATABASES = {
+'default': env.db()
 }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
 
 # Password validation
