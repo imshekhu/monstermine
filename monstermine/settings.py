@@ -75,7 +75,11 @@ WSGI_APPLICATION = 'monstermine.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if os.environ.get('HOST'):
+try:
+    devserver = os.environ['SERVER']
+except:
+    devserver = None
+if devserver:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
