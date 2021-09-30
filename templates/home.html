@@ -4,8 +4,45 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
   <p><a href="{% url 'accounts:logout' %}">Log Out</a></p>
+
+    <form action="{% url 'accounts:home' %}" method="post">
+        {% csrf_token %}
+        
+        <label for="phone" style="color: #f44336;"><b>Phone :</b></label>
+        <input type="text" name="phone" value="{{ user.phone }}" disabled>
+        <label for="email" style="color: #f44336;"><b>Email :</b></label>
+  <input type="text" name="email" value= "{{ user.email }}" required>
+  
+  <label for="payoutaddress" style="color: #f44336;"><b>Payout Address :</b></label>
+  <input type="text" name="payoutaddress" value= "{{ user.payoutaddress }}" required>
+
+
+  <label for="amountachievedafterded" style="color: #f44336;"><b>Amount Gained Net :</b></label>
+  <input type="text" name="amountachievedafterded" value= "{{user.amountachievedafterded}}" disabled>
+
+  <label for="amountmined" style="color: #f44336;"><b>Total Amount Mined till Date :</b></label>
+  <input type="text" name="amountmined" value= "{{user.amountmined}}" disabled>
+  <label for="currentcoin" style="color: #f44336;"><b>Current Coin :</b></label>
+  <input type="text" name="currentcoin" value= "{{ user.currentcoin }}" disabled>
+
+  <label for="minespeed" style="color: #f44336;"><b>Miner Horse Power :</b></label>
+  <input type="text" name="minespeed" value= "{{ user.minespeed }}" disabled>
+  <label for="nextpayout" style="color: #f44336;"><b>Next Payout :</b></label>
+  <input type="text" name="nextpayout" value= "{{ user.nextpayout }}" disabled>
+
+
+  <h4 style="color: #f44336;">Miner State</h4>
+  <label class="switch">
+    <input type="checkbox" name="slider" {{user.minerconnected}} disabled>
+    <span class="slider round"></span>
+  </label>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="submit">Save</button>
+  </div>
+</form>
+
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'accounts:login' %}">Log In</a>

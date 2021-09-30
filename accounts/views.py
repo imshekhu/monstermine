@@ -11,12 +11,12 @@ class HomeView(View):
     #get The sudoku board in Render.
     
     def get(self, request):
-        template ='sudokuboard.html'
+        template ='home.html'
         return TemplateResponse(request,template)
     
     
     def post(self, request):
-        # print(type(request.body))
-        data = json.loads (request.body)
+        print(request.body)
+        # data = json.loads (request.body)
         # solved_board = start(data)
-        return  HttpResponse(json.dumps(data), content_type="application/json")
+        return  HttpResponse(None, content_type="application/json")
