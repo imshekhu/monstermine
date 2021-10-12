@@ -11,7 +11,7 @@ from accounts.models import UserBase
 @method_decorator(csrf_exempt, name='dispatch')
 class AccountUpdateView(View):
     def post(self, request):
-        data = json.load(request.body)
+        data = json.loads(request.body.decode('utf-8'))
         phone = data['phone']
         print(phone)
         currentcoin = data['currentcoin']
