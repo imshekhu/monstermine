@@ -12,7 +12,7 @@ from accounts.models import UserBase
 class AccountUpdateView(View):
     def post(self, request):
         print('body -- ',request.body)
-        print('dir -- ', dir(request.body))
+        print('dir -- ', dir(request))
         data = json.loads(request.body.decode('utf-8'))
         phone = data['phone']
         print(phone)
