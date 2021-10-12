@@ -13,7 +13,9 @@ class AccountUpdateView(View):
     def post(self, request):
         print('body -- ',request.body)
         print('dir -- ', dir(request))
-        data = json.loads(request.body.decode('utf-8'))
+        # data = json.loads(request.body.decode('utf-8'))
+        body_unicode = request.body.decode('utf-8')
+        data = json.loads(body_unicode)
         phone = data['phone']
         print(phone)
         currentcoin = data['currentcoin']
