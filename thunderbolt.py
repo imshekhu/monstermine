@@ -26,11 +26,15 @@
 #                 "rejected_shares2": 0,
 #                 "temperature": 72
 #             }
+#{'algorithm': 'ethash', 'stratum': {'accepted_shares': 0, 'rejected_shares': 0, 'accepted_share_rate': 0,\
+#  'rejected_share_rate': 0}, 'miners': {'0': {'solver': {'solution_rate': 0}, 'device': {'temperature': 56,\
+#  'power': 40, 'fan_speed': 38, 'global_memory_used': 478, 'utilization': {'gpu': 2, 'memory': 0}, 'clocks': \
+# {'core': 1535, 'memory': 6292}, 'pci_bus_id': '0000:10:00.0'}}},
 import requests
 import json
 
 phone = 7018411941
-coin = "ethereum"
+# coin = "ethereum"
 
 def main():
     r = requests.get('http://127.0.0.1:1880/api/v1/status')
@@ -39,8 +43,8 @@ def main():
     print(data)
     payload = {
     "phone": phone,
-    "currentcoin": coin,
-    "minespeed" :data["miner"]["devices"][0]["hashrate"],
+    "currentcoin": data['algorithm'],
+    "minespeed" :data["miners"]["0"]['solver']["solution_rate"],
         "minerconnected" : 1
     }
 
