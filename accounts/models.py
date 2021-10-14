@@ -73,6 +73,11 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     minespeed = models.CharField(max_length=150, blank=True)
     minerconnected = models.BooleanField(default=False)
     nextpayout =  models.CharField(max_length=150, blank=True)
+    profit_today = models.CharField(max_length=150, blank=True)
+    profit_yesterday = models.CharField(max_length=150, blank=True)
+
+    watcherlink = models.CharField(max_length=250, blank=True)
+    binance_profile_token = models.CharField(max_length=250, blank=True)
 
     objects = CustomAccountManager()
 

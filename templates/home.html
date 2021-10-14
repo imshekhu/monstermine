@@ -17,8 +17,14 @@
   <label for="payoutaddress" style="color: #f44336;"><b>Payout Address :</b></label>
   <input type="text" name="payoutaddress" value= "{{ user.payoutaddress }}" required>
 
+  <label for="profit_today" style="color: #f44336;"><b>Est. Profit Today :</b></label>
+  <input type="text" name="profit_today" value= "{{user.profit_today}}" disabled>
 
-  <label for="amountachievedafterded" style="color: #f44336;"><b>Amount Gained Net :</b></label>
+  <label for="profit_yesterday" style="color: #f44336;"><b>Yesterday Gained Net :</b></label>
+  <input type="text" name="profit_yesterday" value= "{{user.profit_yesterday}}" disabled>
+
+
+  <label for="amountachievedafterded" style="color: #f44336;"><b>Total Amount Gained Net :</b></label>
   <input type="text" name="amountachievedafterded" value= "{{user.amountachievedafterded}}" disabled>
 
   <label for="amountmined" style="color: #f44336;"><b>Total Amount Mined till Date :</b></label>
