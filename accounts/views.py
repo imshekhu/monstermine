@@ -9,36 +9,43 @@ import requests
 
 # @method_decorator(csrf_exempt, name='dispatch')
 class HomeView(View):
-    #get The sudoku board in Render.
-    
+    """
+    Return Account Data by fetching binance watcher link stored inside db by Admin
+
+    """
+
     def get(self, request):
         template ='home.html'
-        print(request.user)
+        api_string = 'https://pool.binance.com/mining-api/v1/public/pool/'
+        api_stat = 'stat?observerToken={}'
+        api_miner = 'profit/miner?observerToken={}'
         try:
             token= request.user.binance_profile_token
-            api = 'https://pool.binance.com/mining-api/v1/public/pool/stat?observerToken={}'.format(token)
-            # print(api)
-            statresponse = requests.get(api).json()
-            # print(statresponse)
-            # print(statresponse['data']['profitToday']['ETH'])
+            
+            statresponse = requests.get(api_string+api_stat.format(token)).json()
+            print(json.dumps(statresponse,  indent=4))
             user = request.user
             user.profit_today = statresponse['data']['profitToday']['ETH']
             user.profit_yesterday = statresponse['data']['profitYesterday']['ETH']
-            api = 'https://pool.binance.com/mining-api/v1/public/pool/profit/miner?observerToken={}'.format(token)
-            afterfees = 0.00339751
-            minerresponse = requests.get(api).json()
-            # print(minerresponse)
-            total_amount = afterfees + minerresponse['data']['totalAmount']['ETH']   
-            user.amountmined = total_amount
-            user.amountachievedafterded = 0.95*total_amount
+            afterfees = 0
+            if request.user.id == 2:
+                afterfees = 0.00339751
+            minerresponse = requests.get(api_string+api_miner.format(token)).json()
+            print(json.dumps(minerresponse,  indent=4))
+            
+            minespeed = int(statresponse['data']['hashRate'])
+            user.minespeed = minespeed/1000000
+            user.amountmined  = afterfees + minerresponse['data']['totalAmount']['ETH']   
+            user.amountachievedafterded = 0.95*user.amountmined
             user.save()
         except Exception as e:
             print('Error',e)
+            raise
         return TemplateResponse(request,template)
     
     
     def post(self, request):
-        print(request.body)
+        
         # data = json.loads (request.body)
         # solved_board = start(data)
         return  HttpResponse(None, content_type="application/json")

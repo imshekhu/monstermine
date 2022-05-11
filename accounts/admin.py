@@ -11,7 +11,8 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {
             "fields": (
-                ('email', 'first_name', 'last_name', 'is_staff',  'password', 'profit_today', 'profit_yesterday', 'amountmined')
+                ('email', 'first_name', 'last_name', 'is_staff',  'password', 'profit_today', 'profit_yesterday', 'amountmined', 
+                 'watcherlink', 'binance_profile_token')
                 
             ),
         }),

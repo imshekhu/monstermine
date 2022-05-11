@@ -11,13 +11,11 @@ from accounts.models import UserBase
 @method_decorator(csrf_exempt, name='dispatch')
 class AccountUpdateView(View):
     def post(self, request):
-        print('body -- ',type(request.body))
-        print('dir -- ', dir(request))
         # data = json.loads(request.body.decode('utf-8'))
         body_unicode = request.body.decode('utf-8')
         data = json.loads(body_unicode)
         phone = data['phone']
-        print(phone)
+        # print(phone)
         currentcoin = data['currentcoin']
         minespeed = data['minespeed']
         minerconnected = data['minerconnected']
