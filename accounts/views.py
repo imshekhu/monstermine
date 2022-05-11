@@ -40,7 +40,7 @@ class HomeView(View):
             user.save()
         except Exception as e:
             print('Error',e)
-            raise
+            # raise
         return TemplateResponse(request,template)
     
     
