@@ -20,12 +20,15 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": (
                 ('email', 'first_name', 'last_name', 'is_staff',  'password', 'profit_today', 'profit_yesterday', 'amountmined', 
-                 'watcherlink', 'binance_profile_token',)
+                 'watcherlink', 'binance_profile_token', 'is_active', 'currentcoin')
                 
             ),}),
     )
     add_fieldsets =  (
-        (None, {'fields': ('phone', 'password')}),
+        (None, {
+            'classes': ('wide',),
+            'fields': ('phone','password1', 'password2', 'email',)
+            }),
     )
 
 admin.site.register(UserBase, CustomUserAdmin)
