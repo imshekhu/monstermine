@@ -23,7 +23,7 @@ class HomeView(View):
             token= request.user.binance_profile_token
             
             statresponse = requests.get(api_string+api_stat.format(token)).json()
-            print(json.dumps(statresponse,  indent=4))
+            # print(json.dumps(statresponse,  indent=4))
             user = request.user
             user.profit_today = statresponse['data']['profitToday']['ETH']
             user.profit_yesterday = statresponse['data']['profitYesterday']['ETH']
@@ -31,7 +31,7 @@ class HomeView(View):
             if request.user.id == 2:
                 afterfees = 0.00339751
             minerresponse = requests.get(api_string+api_miner.format(token)).json()
-            print(json.dumps(minerresponse,  indent=4))
+            # print(json.dumps(minerresponse,  indent=4))
             
             minespeed = int(statresponse['data']['hashRate'])
             user.minespeed = minespeed/1000000
