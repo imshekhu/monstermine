@@ -37,6 +37,8 @@ class HomeView(View):
             user.minespeed = minespeed/1000000
             user.amountmined  = afterfees + minerresponse['data']['totalAmount']['ETH']   
             user.amountachievedafterded = 0.95*user.amountmined
+            
+            user.in_wallet_amount = float(user.amountachievedafterded) - (float(user.withdrawn_amount) + float(user.in_staking))
             user.save()
         except Exception as e:
             print('Error',e)

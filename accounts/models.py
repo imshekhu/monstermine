@@ -75,8 +75,11 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     nextpayout =  models.CharField(max_length=150, blank=True)
     profit_today = models.CharField(max_length=150, blank=True)
     profit_yesterday = models.CharField(max_length=150, blank=True)
-    withdrawn_amount = models.CharField(max_length=150, null=True)
-
+  
+    withdrawn_amount = models.FloatField(default=0)
+    in_staking = models.FloatField(default=0)
+    in_wallet_amount = models.FloatField(default=0)
+  
     watcherlink = models.CharField(max_length=250, blank=True)
     binance_profile_token = models.CharField(max_length=250, blank=True)
 
