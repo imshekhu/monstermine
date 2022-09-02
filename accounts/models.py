@@ -98,7 +98,7 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
         ]
 
     def __str__(self):
-        return self.first_name
+        return self.first_name + ' ' + self.last_name
 
     def save(self, *args, **kwargs):
         super(UserBase, self).save(*args, **kwargs)

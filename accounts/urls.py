@@ -8,6 +8,9 @@ app_name='accounts'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('wallet/', WalletView.as_view(), name='wallet'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('contact/', ContactView.as_view(), name='contact'),
     #  path('new-entry/', OwnBoardView.as_view(), name='new-entry'),
 ]

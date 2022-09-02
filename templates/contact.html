@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content">
+    <div class="container">
+        <!-- Payout Address -->
+        <div class="row">
+            <div class="col-3">
+
+                <label for="name" class="col-sm-2 col-form-label no-space-break">Name</label>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-7">
+                <input type="text" class="form-control-plaintext" id="name"
+                    placeholder="Name" value="{{ user }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+
+                <label for="phone" class="col-sm-2 col-form-label no-space-break">Phone</label>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-7">
+                <input type="text" class="form-control-plaintext" id="phone"
+                    placeholder="Phone Number" value="{{ user.phone }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+
+                <label for="name" class="col-sm-2 col-form-label no-space-break">Email</label>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-7">
+                <input type="text" class="form-control-plaintext" id="email"
+                    placeholder="Email" value="{{ user.email}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+
+                <label for="name" class="col-sm-2 col-form-label no-space-break">Payout Address</label>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-7">
+                <input type="text" class="form-control-plaintext" id="payoutAddress"
+                    placeholder="BEP(20)" value="{{ user.payoutaddress}}">
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}

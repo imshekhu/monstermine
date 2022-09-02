@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html, body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col justify-start items-center h-[896px] gap-3 px-[9px] bg-[#e4ebec]">
+      <div
+        class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 h-[448px] w-[390px] relative gap-2.5 px-2.5 pt-2.5"
+      >
+        <div class="flex-grow-0 flex-shrink-0 w-[380px] h-[380px] relative">
+          <svg
+            width="351"
+            height="100"
+            viewBox="0 0 351 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-[-1px] top-[72px]"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M228 193C228 262.588 176.96 319 114 319C51.0395 319 0 262.588 0 193C0 123.412 51.0395 67 114 67C176.96 67 228 123.412 228 193Z"
+              fill="#96D9DD"
+              fill-opacity="0.56"
+            ></path>
+            <path
+              d="M351 126C351 195.588 299.96 252 237 252C174.04 252 123 195.588 123 126C123 56.4121 174.04 0 237 0C299.96 0 351 56.4121 351 126Z"
+              fill="#D2E7E9"
+              fill-opacity="0.6"
+            ></path></svg
+          ><img
+            src="cyborg-bitcoin-mining-1.png"
+            class="w-[380px] h-[392px] absolute left-[-1px] top-[-1px] object-cover"
+          />
+        </div>
+      </div>
+      <div class="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 p-2.5">
+        <p class="flex-grow-0 flex-shrink-0 text-lg font-bold text-center text-black">
+          Username/Mobile
+        </p>
+      </div>
+      <div
+        class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 p-2.5"
+      >
+        <div
+          class="flex-grow-0 flex-shrink-0 w-[340px] h-[72px] rounded-[20px]"
+          style="background: linear-gradient(to bottom, #fff 82.08%, rgba(234,234,234,0.65) 92.21%, rgba(196,196,196,0) 112.1%);"
+        ><input type="text" id="txt_input" style="position: relative; 
+        left: 10%;
+        transform: translateX(-50%);
+        transform: translateY(-60%);
+        right: 20%;
+        
+        
+        top:50% ;
+        width:80%;
+        height:80%;
+        bottom:50%;
+        font-size: larger;
+        font-weight: bold;
+        font-stretch: expanded;
+        font-family: sans-serif;
+        font-variant-position: normal;
+        font-variant-position: inherit;
+        letter-spacing: 2px;
+
+"
+        /></div>
+      </div>
+      <div class="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 p-2.5">
+        <p class="flex-grow-0 flex-shrink-0 text-lg font-bold text-center text-black">Password</p>
+      </div>
+      <div
+        class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 p-2.5"
+      >
+        <div
+          class="flex-grow-0 flex-shrink-0 w-[340px] h-[72px] rounded-[20px]"
+          style="background: linear-gradient(to bottom, #fff 82.08%, rgba(234,234,234,0.65) 92.21%, rgba(196,196,196,0) 112.1%);"
+        ><input type="password" id="txt_password" style="position: relative; 
+        left: 10%;
+        transform: translateX(-50%);
+        transform: translateY(-60%);
+        right: 20%;
+        
+
+        top:50% ;
+        width:80%;
+        height:80%;
+        bottom:50%;
+
+        font-size: larger;
+        font-weight: bold;
+        font-stretch: expanded;
+        font-family: sans-serif;
+        font-variant-position: normal;
+        font-variant-position: inherit;
+        letter-spacing: 3px;
+"
+        /></div>
+      </div>
+      <!-- <button type="button" class="btn btn-success btn-lg float-end" >Login</button> -->
+
+                  <!-- </button> -->
+                  
+      <div
+        class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 p-2.5">
+        <div class="vertical-center">
+          
+        </div>
+        <button onclick="myFunction()">
+        <svg
+          width="362"
+          height="86"
+          viewBox="0 0 362 86"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="flex-grow-0 flex-shrink-0"
+          preserveAspectRatio="none">
+          <path d="M0 0H362V86H0V0Z" fill="#45E1EB"></path>
+          <path
+            d="M154.053 47.3601H158.533V50.0001H150.633V35.9601H154.053V47.3601Z"
+            fill="white"
+          ></path>
+          <path
+            d="M165.244 50.1601C164.151 50.1601 163.164 49.9267 162.284 49.4601C161.417 48.9934 160.73 48.3267 160.224 47.4601C159.73 46.5934 159.484 45.5801 159.484 44.4201C159.484 43.2734 159.737 42.2667 160.244 41.4001C160.751 40.5201 161.444 39.8467 162.324 39.3801C163.204 38.9134 164.19 38.6801 165.284 38.6801C166.377 38.6801 167.364 38.9134 168.244 39.3801C169.124 39.8467 169.817 40.5201 170.324 41.4001C170.83 42.2667 171.084 43.2734 171.084 44.4201C171.084 45.5667 170.824 46.5801 170.304 47.4601C169.797 48.3267 169.097 48.9934 168.204 49.4601C167.324 49.9267 166.337 50.1601 165.244 50.1601ZM165.244 47.2001C165.897 47.2001 166.45 46.9601 166.904 46.4801C167.37 46.0001 167.604 45.3134 167.604 44.4201C167.604 43.5267 167.377 42.8401 166.924 42.3601C166.484 41.8801 165.937 41.6401 165.284 41.6401C164.617 41.6401 164.064 41.8801 163.624 42.3601C163.184 42.8267 162.964 43.5134 162.964 44.4201C162.964 45.3134 163.177 46.0001 163.604 46.4801C164.044 46.9601 164.591 47.2001 165.244 47.2001Z"
+            fill="white"
+          ></path>
+          <path
+            d="M177.138 38.6801C177.925 38.6801 178.612 38.8401 179.198 39.1601C179.798 39.4801 180.258 39.9001 180.578 40.4201V38.8401H183.998V49.9801C183.998 51.0067 183.792 51.9334 183.378 52.7601C182.978 53.6001 182.358 54.2667 181.518 54.7601C180.692 55.2534 179.658 55.5001 178.418 55.5001C176.765 55.5001 175.425 55.1067 174.398 54.3201C173.372 53.5467 172.785 52.4934 172.638 51.1601H176.018C176.125 51.5867 176.378 51.9201 176.778 52.1601C177.178 52.4134 177.672 52.5401 178.258 52.5401C178.965 52.5401 179.525 52.3334 179.938 51.9201C180.365 51.5201 180.578 50.8734 180.578 49.9801V48.4001C180.245 48.9201 179.785 49.3467 179.198 49.6801C178.612 50.0001 177.925 50.1601 177.138 50.1601C176.218 50.1601 175.385 49.9267 174.638 49.4601C173.892 48.9801 173.298 48.3067 172.858 47.4401C172.432 46.5601 172.218 45.5467 172.218 44.4001C172.218 43.2534 172.432 42.2467 172.858 41.3801C173.298 40.5134 173.892 39.8467 174.638 39.3801C175.385 38.9134 176.218 38.6801 177.138 38.6801ZM180.578 44.4201C180.578 43.5667 180.338 42.8934 179.858 42.4001C179.392 41.9067 178.818 41.6601 178.138 41.6601C177.458 41.6601 176.878 41.9067 176.398 42.4001C175.932 42.8801 175.698 43.5467 175.698 44.4001C175.698 45.2534 175.932 45.9334 176.398 46.4401C176.878 46.9334 177.458 47.1801 178.138 47.1801C178.818 47.1801 179.392 46.9334 179.858 46.4401C180.338 45.9467 180.578 45.2734 180.578 44.4201Z"
+            fill="white"
+          >
+        
+        </path>
+          <path
+            d="M188.192 37.6801C187.592 37.6801 187.099 37.5067 186.712 37.1601C186.339 36.8001 186.152 36.3601 186.152 35.8401C186.152 35.3067 186.339 34.8667 186.712 34.5201C187.099 34.1601 187.592 33.9801 188.192 33.9801C188.779 33.9801 189.259 34.1601 189.632 34.5201C190.019 34.8667 190.212 35.3067 190.212 35.8401C190.212 36.3601 190.019 36.8001 189.632 37.1601C189.259 37.5067 188.779 37.6801 188.192 37.6801ZM189.892 38.8401V50.0001H186.472V38.8401H189.892Z"
+            fill="white"
+          ></path>
+          <path
+            d="M199.171 38.7201C200.478 38.7201 201.518 39.1467 202.291 40.0001C203.078 40.8401 203.471 42.0001 203.471 43.4801V50.0001H200.071V43.9401C200.071 43.1934 199.878 42.6134 199.491 42.2001C199.104 41.7867 198.584 41.5801 197.931 41.5801C197.278 41.5801 196.758 41.7867 196.371 42.2001C195.984 42.6134 195.791 43.1934 195.791 43.9401V50.0001H192.371V38.8401H195.791V40.3201C196.138 39.8267 196.604 39.4401 197.191 39.1601C197.778 38.8667 198.438 38.7201 199.171 38.7201Z"
+            fill="white"
+          ></path>
+        </svg>
+      </button>
+      </div> 
+      <div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myFunction(){
+            console.log('api hit');
+            // get the value of CSRF token
+            //var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val();
+    
+            //var data = document.getElementById("id_new_list").value;
+    
+           //$.post('lists/new', { 
+             //  item_text: data,
+               //csrfmiddlewaretoken: CSRFtoken
+           //});
+          username = document.getElementById("txt_input").value;
+          password = document.getElementById("txt_password").value;
+          console.log(username);
+          console.log(password);
+
+        };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </body>
+</html>

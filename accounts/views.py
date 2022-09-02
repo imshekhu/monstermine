@@ -6,8 +6,10 @@ from django.utils.decorators import method_decorator
 from django.http import HttpResponse
 import json
 import requests
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+# from .models import 
 
-# @method_decorator(csrf_exempt, name='dispatch')
 class HomeView(View):
     """
     Return Account Data by fetching binance watcher link stored inside db by Admin
@@ -43,6 +45,7 @@ class HomeView(View):
         except Exception as e:
             print('Error',e)
             # raise
+            # raise
         return TemplateResponse(request,template)
     
     
@@ -51,3 +54,62 @@ class HomeView(View):
         # data = json.loads (request.body)
         # solved_board = start(data)
         return  HttpResponse(None, content_type="application/json")
+    
+class WalletView(View):
+        """
+        Return Account Data by fetching binance watcher link stored inside db by Admin
+
+        """
+
+        def get(self, request):
+            template ='wallet.html'
+            
+            return TemplateResponse(request, template)
+            
+@method_decorator(csrf_exempt, name='dispatch')
+class LoginView(View):
+        """
+        Return Account Data by fetching binance watcher link stored inside db by Admin
+
+        """
+
+        def post(self, request):
+            
+            try :
+                username = request.POST['username']
+                password = request.POST['password']
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    response={'status': 1, 'message': "Ok"}
+                    return HttpResponse(json.dumps(response), content_type='application/json')
+                
+                response = {'status':0, 'message': "Username Password Incorrect"}
+                return HttpResponse(json.dumps(response), content_type='application/json')
+            except Exception as e:
+                print("Error in Login view", str(e))
+                response = {'status':0, 'message': "Error!! Please try again after sometime"}
+                return HttpResponse(json.dumps(response), content_type='application/json')
+                
+class ContactView(View):
+    """_summary_
+
+    Args:
+        View (_type_): Contact page view 
+    """
+    
+    def get(self, request):
+            template ='contact.html'
+            
+            return TemplateResponse(request, template)    
+    
+            # if request.method == "POST":
+            #     current_user_profile = request.user.profile
+            #     data = request.POST
+            #     action = data.get("follow")
+            # if action == "follow":
+            #     current_user_profile.follows.add(profile)
+            # elif action == "unfollow":
+            #     current_user_profile.follows.remove(profile)
+            #     current_user_profile.save()
+        

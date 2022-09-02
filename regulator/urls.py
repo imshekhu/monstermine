@@ -8,6 +8,7 @@ app_name='regulator'
 
 urlpatterns = [
     # path('', HomeView.as_view(), name='home'),
+    # Not working..
     path('call-to-mom/', AccountUpdateView.as_view(), name='update')
     #  path('new-entry/', OwnBoardView.as_view(), name='new-entry'),
     
