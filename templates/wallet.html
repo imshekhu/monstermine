@@ -20,36 +20,39 @@
                 <input type="text" class="form-control-plaintext" id="payoutAddress"
                     placeholder="BEP(20)" value="">
             </div>
-        </row>
-        <div class="row"><div class="col-3">
-
-            <label for="amountPayout" class="col-sm-2 col-form-label no-space-break">Payout Amount</label>
-
         </div>
-        <div class="col-3"></div>
-        <div class="col-6">
+        <div class="row">
+            <div class="col-3">
 
-            <div class="input-group mb-3">
-                <input type="number" class="form-control" placeholder="0.00" aria-label="Recipient's username"
+                <label for="amountPayout" class="col-sm-2 col-form-label no-space-break">Payout Amount</label>
+
+            </div>
+            <div class="col-3">
+
+            </div>
+            <div class="col-6">
+
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="0.00" aria-label="Recipient's username"
                     aria-describedby="basic-addon2" id="payoutAmount" max={{user.in_wallet_amount}}>
-                <div class="input-group-append ">
+                    <div class="input-group-append ">
                     <button class="maxpayout-btn" onclick="setMaxPayout()">Max value</button>
 
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row">
 
-        <div class="col-6">
-        <button type="button" class="btn btn-success btn-lg float-end" style='color:orange;' >Save</button>
+            <div class="col-6">
+                <button type="button" class="btn btn-success btn-lg float-end" style='color:orange;' >Save</button>
 
-        </div>
-        <div class="col-6">
-            <button type="button" class="btn btn-primary btn-lg float-end bg-black" >Payout</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-lg float-end bg-black" >Payout</button>
     
-            </div></div>
+            </div>
             
-
-
         </div>
         <div class="row">
 
@@ -192,17 +195,6 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script>
-        //var buttons = document.querySelectorAll('.set-max'); 
-        //buttons.forEach(function (button) {
-        //   button.addEventListener('click', function (event) {
-        //      var input = event.currentTarget.parentElement.querySelector('input[type="number"]');
-        //      input.value = input.max;
-
-        //      document.getElementById("myText").value = "Johnny Bravo";
-
-
-        //  });
-        // });
         function setValueAttr(el) { el.setAttribute('value', el.value) }
 
         function setMaxPayout() {

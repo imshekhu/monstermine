@@ -56,4 +56,33 @@
         
     </div>
 
+    <script>
+        function setValueAttr(el) { el.setAttribute('value', el.value) }
+
+        function setMaxPayout() {
+
+            var payField = document.getElementById("payoutAmount");
+            console.log(payField.value);
+            payField.value = payField.max;
+            console.log(payField.max)
+
+        }
+
+        var navbar = document. getElementById("navbar");
+        var aTags = null;
+        for (var i = 0; i < navbar. childNodes. length; i++) {
+        if (navbar. childNodes[i]. id == "contact") {
+        wallet = navbar. childNodes[i];
+        console.log('found contact');
+        wallet. className="active";
+        
+        }
+        else{
+            navbar. childNodes[i]. className=""
+        }
+        }
+
+    </script>
+
+
 {% endblock %}
