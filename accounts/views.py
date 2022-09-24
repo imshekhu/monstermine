@@ -10,6 +10,8 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
 # from .models import 
 
+COIN_CONFIG = 'ETC'
+
 class HomeView(View):
     """
     Return Account Data by fetching binance watcher link stored inside db by Admin
@@ -27,23 +29,21 @@ class HomeView(View):
             statresponse = requests.get(api_string+api_stat.format(token)).json()
             # print(json.dumps(statresponse,  indent=4))
             user = request.user
-            user.profit_today = statresponse['data']['profitToday']['ETH']
-            user.profit_yesterday = statresponse['data']['profitYesterday']['ETH']
+            user.profit_today = statresponse['data']['profitToday'][COIN_CONFIG]
+            user.profit_yesterday = statresponse['data']['profitYesterday'][COIN_CONFIG]
             afterfees = 0
-            if request.user.id == 2:
-                afterfees = 0.00339751
             minerresponse = requests.get(api_string+api_miner.format(token)).json()
             # print(json.dumps(minerresponse,  indent=4))
             
             minespeed = int(statresponse['data']['hashRate'])
             user.minespeed = minespeed/1000000
-            user.amountmined  = afterfees + minerresponse['data']['totalAmount']['ETH']   
+            user.amountmined  = afterfees + minerresponse['data']['totalAmount'][COIN_CONFIG]   
             user.amountachievedafterded = 0.95*user.amountmined
             
             user.in_wallet_amount = float(user.amountachievedafterded) - (float(user.withdrawn_amount) + float(user.in_staking))
             user.save()
         except Exception as e:
-            print('Error',e)
+            print('Error in Homeview : ',e)
             # raise
             # raise
         return TemplateResponse(request,template)
