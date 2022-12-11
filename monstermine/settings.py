@@ -92,10 +92,10 @@ except:
 DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'd98v86ttnaavhg',
-    'USER': 'qthyzmpheajzqy',
-    'PASSWORD': 'd8dec6ce9d4376217b8e2f95a01f119fe7cf79c69031407f37f4e3ee323862d4',
-    'HOST': 'ec2-3-219-111-26.compute-1.amazonaws.com', 
+    'NAME': 'df75063dqoov24',
+    'USER': 'bcyccizqdjdyyu',
+    'PASSWORD': '64ffcbcd7af0dae7266ae5a42e26f3d124577452945d4aeebace449cdbc57d24',
+    'HOST': 'ec2-34-207-12-160.compute-1.amazonaws.com', 
     'PORT': 5432,
 }
 }
